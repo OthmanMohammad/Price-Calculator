@@ -1,4 +1,6 @@
-﻿namespace PriceCalculator
+﻿
+
+namespace PriceCalculator
 {
     interface ICalculateDiscount
     {

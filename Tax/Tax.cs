@@ -2,19 +2,19 @@
 
 namespace PriceCalculator
 {
-    public class Discount
+    public class Tax
     {
         private readonly int Percent;
-        public double DiscountRate { get; }
-        public Discount(int percent)
+        public double TaxRate { get; }
+        public Tax(int percent)
         {
             if (percent < 0 || percent > 100)
                 throw new ArgumentOutOfRangeException(
                     nameof(percent),
-                    $"{nameof(Tax)} percentage should be in range [0..100]");
+                    $"{nameof(Tax)} percentage should be < 0 and > 100");
 
-            this.Percent = percent;
-            this.DiscountRate = (double)Percent / 100;
+            Percent = percent;
+            TaxRate = (double)Percent / 100;
         }
 
         public override string ToString() => $"{Percent}%";

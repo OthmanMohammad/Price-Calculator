@@ -57,6 +57,40 @@ namespace PriceCalculator
                     .WithDiscount(new Discount(15), new List<UpcDiscounts>() { new UpcDiscounts() { Upc = 12345, Discount = new Discount(7), CanTaxCalculateAfterDiscount = true } })
                     ;
             products.DisplayResult();
+
+            Console.WriteLine("----------Expense--------");
+            products = new Products(new[]
+            {
+                new Product("The Little Prince", 12345, new Amount(20.25)) { },
+            });
+            var expense = new Expenses();
+            expense.AddExpense(
+                new Expense()
+                {
+                    Name = "Packaging",
+                    ExpenseType = ExpenseType.Percentage,
+                    Value = 1
+                });
+            expense.AddExpense(
+                new Expense()
+                {
+                    Name = "Transport",
+                    ExpenseType = ExpenseType.Monetary,
+                    Value = 2.2
+                });
+            products.WithTax(new Tax(21))
+                    .WithDiscount(new Discount(15), new List<UpcDiscounts>() { new UpcDiscounts() { Upc = 12345, Discount = new Discount(7), CanTaxCalculateAfterDiscount = false } })
+                    .WithExpense(expense);
+            products.DisplayResult();
+
+            Console.WriteLine("----------Expense  2--------");
+            products = new Products(new[]
+            {
+                new Product("The Little Prince", 12345, new Amount(20.25)) { },
+            });
+            products.WithTax(new Tax(21));
+            products.DisplayResult();
+
             Console.ReadKey();
         }
     }

@@ -8,5 +8,5 @@ namespace PriceCalculator
         void CalculateTax(IProduct product, Func<IProduct, Amount> additonaldiscount);
     }
 
-   
+
 }

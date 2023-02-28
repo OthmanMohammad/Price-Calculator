@@ -9,11 +9,12 @@ namespace PriceCalculator
             Console.WriteLine($"Product = {product.Name} UPC = {product.Upc}");
             Console.WriteLine($"Cost = {product.Price} ");
             Console.WriteLine($"Tax = {product.TotalTax}");
-            if (product.TotalDiscount.Value>0)
+            if (product.TotalDiscount.Value > 0)
             {
                 Console.WriteLine($"Discounts  = {product.TotalDiscount}");
-            }        
-            Console.WriteLine($"Total = { product.FinalPrice}");            
+            }
+            product.Expenses.DisplayResult();
+            Console.WriteLine($"Total = {product.FinalPrice}");
             Console.WriteLine();
         }
     }

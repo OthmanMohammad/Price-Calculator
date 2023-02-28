@@ -3,7 +3,7 @@
 namespace PriceCalculator
 {
 
-   public class Product : IProduct
+    public class Product : IProduct
     {
         public string Name { get; }
         public int Upc { get; }
@@ -14,14 +14,19 @@ namespace PriceCalculator
         public Amount FinalPrice { get; set; } = new Amount(0);
         public Tax Tax { get; set; }
         public Discount Discount { get; set; }
+        public Expenses Expenses { get; set; }
+
         public Product(string name, int upc, Amount amount)
         {
-            this.Name = name;
-            this.Upc = upc;
-            this.Price = amount;
+            Name = name;
+            Upc = upc;
+            Price = amount;
+            Expenses = new Expenses();
         }
 
+
+
         public override string ToString() =>
-            $"Product Name {this.Name} UPC {this.Upc} Price {this.Price}";
+            $"Product Name {Name} UPC {Upc} Price {Price}";
     }
 }

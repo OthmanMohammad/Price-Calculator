@@ -1,4 +1,5 @@
-﻿namespace PriceCalculator
+﻿
+namespace PriceCalculator
 {
     public interface IProduct
     {
@@ -8,8 +9,9 @@
         Amount TotalTax { get; set; }
         Amount FinalPrice { get; set; }
         Amount TotalDiscount { get; set; }
-        Amount AddionalDiscount { get; set; } 
+        Amount AddionalDiscount { get; set; }
         Tax Tax { get; set; }
         Discount Discount { get; set; }
+        Expenses Expenses { get; set; }
     }
 }
