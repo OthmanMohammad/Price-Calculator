@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PriceCalculator
+﻿namespace PriceCalculator
 {
-    internal interface IProduct
+    public interface IProduct
     {
         string Name { get; }
         int Upc { get; }
         Amount Price { get; }
-        Tax Tax { get; set; }
         Amount TotalTax { get; set; }
         Amount FinalPrice { get; set; }
+        Amount TotalDiscount { get; set; }
+        Amount AddionalDiscount { get; set; } 
+        Tax Tax { get; set; }
+        Discount Discount { get; set; }
     }
 }

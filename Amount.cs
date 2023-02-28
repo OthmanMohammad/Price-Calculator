@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PriceCalculator
 {
     public class Amount
     {
-        public double value { get;}
-
+        public Currency Currency { get; set; }
+        public double Value { get; }
         public Amount(double value)
         {
-            if (value < 0) throw new ArgumentException("Amount can't be less than zero");
-            this.value = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+            if (value < 0) throw new ArgumentException("Amount can not be less than 0");
+            this.Value = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+            this.Currency = new Currency("$", "USD");
         }
+
+        public override string ToString() =>
+            $"{this.Currency.CurrencySymbol}{Value:#0.00}";
 
     }
 }
