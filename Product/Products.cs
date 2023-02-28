@@ -13,7 +13,9 @@ namespace PriceCalculator
         private ITaxCalculate taxCalculate;
         private ICalculateDiscount calculateDiscount;
         private ICalculateExpense calculateExpense;
+        private ICalculateCap calculateDiscountAfterCap;
         public Expenses Expenses { get; set; }
+        public Cap Cap { get; set; }
         private readonly IResult result;
         public Products(IEnumerable<IProduct> products)
         {
@@ -22,6 +24,7 @@ namespace PriceCalculator
             , Enumerable.Empty<UpcDiscounts>());
             result = new DisplayConsole();
             calculateExpense = new ExpenseCalculator(new Expenses());
+            calculateDiscountAfterCap = new DiscountAfterCap(new Cap());
         }
 
         public Products WithTax(Tax tax)
@@ -41,6 +44,13 @@ namespace PriceCalculator
         {
             Expenses = expenses;
             calculateExpense = new ExpenseCalculator(Expenses);
+            return this;
+        }
+        
+        public Products WithCap(Cap cap)
+        {
+            Cap = cap;
+            calculateDiscountAfterCap = new DiscountAfterCap(cap);
             return this;
         }
 

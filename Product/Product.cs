@@ -10,7 +10,8 @@ namespace PriceCalculator
         public Amount Price { get; }
         public Amount TotalTax { get; set; }
         public Amount TotalDiscount { get; set; }
-        public Amount AddionalDiscount { get; set; } = new Amount(0);
+        public Amount AddionalDiscount { get; set; } 
+        public Cap Cap { get; set; }
         public Amount FinalPrice { get; set; } = new Amount(0);
         public Tax Tax { get; set; }
         public Discount Discount { get; set; }
@@ -23,8 +24,6 @@ namespace PriceCalculator
             Price = amount;
             Expenses = new Expenses();
         }
-
-
 
         public override string ToString() =>
             $"Product Name {Name} UPC {Upc} Price {Price}";

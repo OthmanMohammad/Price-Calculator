@@ -9,7 +9,7 @@ namespace PriceCalculator
         public Amount(double value)
         {
             if (value < 0) throw new ArgumentException("Amount can not be less than 0");
-            Value = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+            Value = Math.Round(value, 4, MidpointRounding.AwayFromZero);
             Currency = new Currency("$", "USD");
         }
 

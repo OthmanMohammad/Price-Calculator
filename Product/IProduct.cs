@@ -13,5 +13,6 @@ namespace PriceCalculator
         Tax Tax { get; set; }
         Discount Discount { get; set; }
         Expenses Expenses { get; set; }
+        Cap Cap { get; set; }
     }
 }
